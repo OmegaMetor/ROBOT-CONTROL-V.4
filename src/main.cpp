@@ -148,7 +148,11 @@ void autonomous() {
 
 IntakeLeft = 100;
 IntakeRight.move_velocity(-100);
-
+TrayUpAngle = 90;
+TrayUp();
+TrayUpAngle = 0;
+TrayUp();
+TrayUpAngle = 90;
 pros::delay(500);
 Pathfind->setTarget("Part1");
 Pathfind->waitUntilSettled();
@@ -158,6 +162,8 @@ Pathfind->waitUntilSettled();
 Pathfind->removePath("Part2");
 Pathfind->setTarget("Part3");
 Pathfind->waitUntilSettled();
+TrayUp();
+pros::delay(1000);
 Pathfind->removePath("Part3");
 IntakeLeft = -25;
 IntakeRight.move_velocity(25);
